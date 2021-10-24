@@ -1,13 +1,14 @@
 import { Container, Row, Col } from 'react-bootstrap';
-import ProductCardList from './ProductCardList';
-import Search from './Search';
-import CartQuantitySummary from './CartQuantitySummary';
-import CartSummary from './CartSummary';
-import {IProduct} from '../interfaces/Product';
+import ProductCardList from '../components/ProductCardList';
+import Search from '../components/Search';
+import CartQuantitySummary from '../components/CartQuantitySummary';
+import CartSummary from '../components/CartSummary';
+import MainMenu from '../components/MainMenu';
+import PaginationNav from '../components/PaginationNav';
+import { IProduct } from '../interfaces/Product';
 
 // Container
-const App = () => {
-  const siteName = 'Mi tiendita';
+const HomePage = () => {
   const product: IProduct = {
     color: 'blue',
     currency: 'MXN',
@@ -40,22 +41,27 @@ const App = () => {
   return (
     <Container>
       <Row>
-        <Col><h1>{siteName}</h1></Col>
+        <Col><MainMenu /></Col>
       </Row>
       <Row>
-        <Col><Search /></Col>
-        <Col><CartQuantitySummary items={0}/></Col>
+        <Col xs={12} md={7}><Search /></Col>
+        <Col xs={12} md={5}><CartQuantitySummary items={0}/></Col>
       </Row>
       <Row>
         <h2>Cart Summary</h2>
         <CartSummary cartItems={cartItems} />
       </Row>
       <Row>
-      <h2>Products</h2>
+        <h2>Products</h2>
         <ProductCardList products={products}/>
+      </Row>
+      <Row>
+        <Col>
+          <PaginationNav />
+        </Col>
       </Row>
     </Container>
   );
 };
 
-export default App;
+export default HomePage;
