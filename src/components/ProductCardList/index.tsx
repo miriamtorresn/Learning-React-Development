@@ -10,7 +10,7 @@ const ProductCardList = (props: IProductCardListProps) => {
   return (
     <>
       {props.products.map((product: IProduct) => (
-        <Col xs={1} sm={2} md={3}><ProductCard product={product}/></Col>
+        <Col xs={12} sm={6} md={4} lg={3}><ProductCard product={product}/></Col>
       ))}
     </>
   );

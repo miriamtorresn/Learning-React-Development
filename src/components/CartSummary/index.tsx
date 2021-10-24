@@ -8,7 +8,7 @@ interface IProductCardProps {
 const CartSummary = (props: IProductCardProps) => (
   <>
     { props.cartItems.map((product: IProduct) => (
-      <Col xs={1} sm={2} md={3}>
+      <Col xs={12} sm={6} md={4} lg={3}>
         <Card>
           <Card.Body>
             <Card.Title>{product.name}</Card.Title>
