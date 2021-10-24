@@ -2,7 +2,8 @@ import { Card, Button } from 'react-bootstrap';
 import { IProduct } from '../../interfaces/Product';
 
 interface IProductCardProps {
-  product: IProduct
+  product: IProduct;
+  addToCart: (product: IProduct) => void;
 };
 
 const ProductCard = (props: IProductCardProps) => (
@@ -12,7 +13,7 @@ const ProductCard = (props: IProductCardProps) => (
       <Card.Title>{props.product.name}</Card.Title>
       <Card.Text>{props.product.description}</Card.Text>
       <Card.Text>{props.product.price} {props.product.currency}</Card.Text>
-      <Button variant="secondary">+</Button>
+      <Button variant="secondary" onClick={() => props.addToCart(props.product)}>+</Button>
       {props.product.quantity}
       <Button variant="secondary">-</Button>
     </Card.Body>
