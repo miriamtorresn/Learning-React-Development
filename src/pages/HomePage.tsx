@@ -35,6 +35,11 @@ class HomePage extends React.Component {
     this.updateProduct(product);
   };
 
+  removeFromCart = (product: IProduct): void => {
+    product.quantity -= 1;
+    this.updateProduct(product);
+  };
+
   updateProduct = (product: IProduct) => {
     const products: IProduct[] = this.state.products.map((_product: IProduct) => {
       if (product.id === _product.id) {
@@ -67,7 +72,7 @@ class HomePage extends React.Component {
         </Row>
         <Row>
           <h2>Products</h2>
-          <ProductCardList products={this.state.products} addToCart={this.addToCart}/>
+          <ProductCardList products={this.state.products} addToCart={this.addToCart} removeFromCart={this.removeFromCart}/>
         </Row>
         <Row>
           <Col>

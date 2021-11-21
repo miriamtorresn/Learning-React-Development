@@ -4,6 +4,7 @@ import { IProduct } from '../../interfaces/Product';
 interface IProductCardProps {
   product: IProduct;
   addToCart: (product: IProduct) => void;
+  removeFromCart: (product: IProduct) => void;
 };
 
 const ProductCard = (props: IProductCardProps) => (
@@ -15,7 +16,7 @@ const ProductCard = (props: IProductCardProps) => (
       <Card.Text>{props.product.price} {props.product.currency}</Card.Text>
       <Button variant="secondary" onClick={() => props.addToCart(props.product)}>+</Button>
       {props.product.quantity}
-      <Button variant="secondary">-</Button>
+      <Button variant="secondary" onClick={() => props.removeFromCart(props.product)}>-</Button>
     </Card.Body>
   </Card>
 );
